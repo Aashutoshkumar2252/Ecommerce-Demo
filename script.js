@@ -1,4 +1,3 @@
-// Product data
 const products = [
     { name: 'Classic White Shirt', category: 'men', price: 49.99, size: 'M', img: 'https://images.unsplash.com/photo-1583743814966-8936f970b74b?auto=format&fit=crop&w=500&q=60' },
     { name: 'Denim Jacket', category: 'men', price: 89.99, size: 'L', img: 'https://images.unsplash.com/photo-1596755094514-f87e34085b2c?auto=format&fit=crop&w=500&q=60' },
@@ -26,11 +25,11 @@ function updateOrderSummary() {
         totalAmount.textContent = '$0.00';
     } else {
         orderSummary.innerHTML = cart.map(item => `
-            <div class="flex justify-between text-gray-700">
-                <span>${item.name}</span>
-                <span>$${item.price.toFixed(2)}</span>
-            </div>
-        `).join('');
+                    <div class="flex justify-between text-gray-700">
+                        <span>${item.name}</span>
+                        <span>$${item.price.toFixed(2)}</span>
+                    </div>
+                `).join('');
         const total = cart.reduce((sum, item) => sum + item.price, 0);
         totalAmount.textContent = `$${total.toFixed(2)}`;
     }
@@ -95,15 +94,15 @@ function filterProducts() {
     });
 
     productGrid.innerHTML = filteredProducts.length > 0 ? filteredProducts.map(product => `
-        <div class="product-card bg-white rounded-xl shadow-lg overflow-hidden" data-tilt data-tilt-max="10" data-tilt-speed="400" data-tilt-perspective="1000" data-category="${product.category}" data-price="${product.price}" data-size="${product.size}">
-            <img src="${product.img}" onerror="this.src='https://via.placeholder.com/500x500?text=Image+Not+Found'" alt="${product.name}" class="w-full h-64 object-cover">
-            <div class="p-5">
-                <h3 class="text-lg font-semibold text-gray-800">${product.name}</h3>
-                <p class="text-gray-600">$${product.price.toFixed(2)}</p>
-                <button class="mt-4 w-full btn-gradient text-white py-2 rounded-lg font-medium hover:shadow-lg" onclick="addToCart('${product.name}', ${product.price})">Add to Cart</button>
-            </div>
-        </div>
-    `).join('') : '<p class="text-center col-span-full text-gray-600">No products found.</p>';
+                <div class="product-card bg-white rounded-xl shadow-lg overflow-hidden" data-tilt data-tilt-max="10" data-tilt-speed="400" data-tilt-perspective="1000" data-category="${product.category}" data-price="${product.price}" data-size="${product.size}">
+                    <img src="${product.img}" alt="${product.name}" class="w-full h-64 object-cover">
+                    <div class="p-5">
+                        <h3 class="text-lg font-semibold text-gray-800">${product.name}</h3>
+                        <p class="text-gray-600">$${product.price.toFixed(2)}</p>
+                        <button class="mt-4 w-full btn-gradient text-white py-2 rounded-lg font-medium hover:shadow-lg" onclick="addToCart('${product.name}', ${product.price})">Add to Cart</button>
+                    </div>
+                </div>
+            `).join('') : '<p class="text-center col-span-full text-gray-600">No products found.</p>';
 
     // Reapply Vanilla Tilt to new product cards
     VanillaTilt.init(document.querySelectorAll('.product-card'), {
@@ -121,15 +120,15 @@ function searchProducts() {
     const filteredProducts = products.filter(product => product.name.toLowerCase().includes(searchTerm));
 
     productGrid.innerHTML = filteredProducts.length > 0 ? filteredProducts.map(product => `
-        <div class="product-card bg-white rounded-xl shadow-lg overflow-hidden" data-tilt data-tilt-max="10" data-tilt-speed="400" data-tilt-perspective="1000" data-category="${product.category}" data-price="${product.price}" data-size="${product.size}">
-            <img src="${product.img}" onerror="this.src='https://via.placeholder.com/500x500?text=Image+Not+Found'" alt="${product.name}" class="w-full h-64 object-cover">
-            <div class="p-5">
-                <h3 class="text-lg font-semibold text-gray-800">${product.name}</h3>
-                <p class="text-gray-600">$${product.price.toFixed(2)}</p>
-                <button class="mt-4 w-full btn-gradient text-white py-2 rounded-lg font-medium hover:shadow-lg" onclick="addToCart('${product.name}', ${product.price})">Add to Cart</button>
-            </div>
-        </div>
-    `).join('') : '<p class="text-center col-span-full text-gray-600">No products found.</p>';
+                <div class="product-card bg-white rounded-xl shadow-lg overflow-hidden" data-tilt data-tilt-max="10" data-tilt-speed="400" data-tilt-perspective="1000" data-category="${product.category}" data-price="${product.price}" data-size="${product.size}">
+                    <img src="${product.img}" alt="${product.name}" class="w-full h-64 object-cover">
+                    <div class="p-5">
+                        <h3 class="text-lg font-semibold text-gray-800">${product.name}</h3>
+                        <p class="text-gray-600">$${product.price.toFixed(2)}</p>
+                        <button class="mt-4 w-full btn-gradient text-white py-2 rounded-lg font-medium hover:shadow-lg" onclick="addToCart('${product.name}', ${product.price})">Add to Cart</button>
+                    </div>
+                </div>
+            `).join('') : '<p class="text-center col-span-full text-gray-600">No products found.</p>';
 
     // Reapply Vanilla Tilt to new product cards
     VanillaTilt.init(document.querySelectorAll('.product-card'), {
