@@ -4,8 +4,92 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Your Clothing Brand</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.7.0/vanilla-tilt.min.js"></script>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="styles.css">
+    <style>
+        /* Custom styles for enhanced UI with vibrant gradients */
+        body {
+            font-family: 'Poppins', sans-serif;
+        }
+        .hero-bg {
+            background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.6)), url('https://images.unsplash.com/photo-1491553895911-0055eca6402d?auto=format&fit=crop&w=1920&q=80');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+        }
+        .hero-text {
+            animation: fadeInUp 1s ease-out;
+        }
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .product-card {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .product-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 25px rgba(0, 0, 0, 0.2);
+        }
+        .cart-count {
+            top: -12px;
+            right: -12px;
+            font-size: 0.7rem;
+        }
+        .carousel-item {
+            transition: transform 0.7s ease-in-out;
+        }
+        .section-gradient {
+            background: linear-gradient(135deg, #0d9488, #f43f5e);
+        }
+        .review-card {
+            transition: transform 0.3s ease;
+        }
+        .review-card:hover {
+            transform: scale(1.08);
+        }
+        .btn-gradient {
+            background: linear-gradient(to right, #0d9488, #f43f5e);
+            transition: background 0.3s ease;
+        }
+        .btn-gradient:hover {
+            background: linear-gradient(to right, #0f766e, #e11d48);
+        }
+        .filter-dropdown {
+            min-width: 220px;
+        }
+        .search-input:focus {
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(13, 148, 136, 0.3);
+        }
+        .navbar {
+            background: linear-gradient(to bottom, rgba(255, 255, 255, 0.95), rgba(255, 255, 255, 0.85));
+            backdrop-filter: blur(10px);
+        }
+        .mobile-menu {
+            transition: transform 0.3s ease-in-out;
+            transform: translateY(-100%);
+        }
+        .mobile-menu.active {
+            transform: translateY(0);
+        }
+        .pagination-dot {
+            width: 10px;
+            height: 10px;
+            background: rgba(255, 255, 255, 0.5);
+            border-radius: 50%;
+            margin: 0 5px;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+        .pagination-dot.active {
+            background: #ffffff;
+        }
+        .checkout-step {
+            background: linear-gradient(to right, #0d9488, #f43f5e);
+        }
+    </style>
 </head>
 <body class="bg-gray-50">
     <!-- Navigation Bar -->
@@ -63,21 +147,21 @@
             <div class="relative overflow-hidden">
                 <div id="carousel" class="flex transition-transform duration-700 ease-in-out">
                     <div class="carousel-item flex-shrink-0 w-full md:w-1/3 px-3">
-                        <img src="https://images.unsplash.com/photo-1492707892479-7bc8d5a4ee93?auto=format&fit=crop&w=800&q=60" onerror="this.src='https://via.placeholder.com/800x600?text=Image+Not+Found'" alt="Collection 1" class="w-full h-96 object-cover rounded-xl shadow-lg">
+                        <img src="https://images.unsplash.com/photo-1492707892479-7bc8d5a4ee93?auto=format&fit=crop&w=800&q=60" alt="Collection 1" class="w-full h-96 object-cover rounded-xl shadow-lg">
                         <div class="text-center mt-4">
                             <h3 class="text-xl font-semibold">Summer Vibes</h3>
                             <a href="#summer" class="text-teal-200 hover:underline">Shop Now</a>
                         </div>
                     </div>
                     <div class="carousel-item flex-shrink-0 w-full md:w-1/3 px-3">
-                        <img src="https://images.unsplash.com/photo-1539008835657-9e8e9680c956?auto=format&fit=crop&w=800&q=60" onerror="this.src='https://via.placeholder.com/800x600?text=Image+Not+Found'" alt="Collection 2" class="w-full h-96 object-cover rounded-xl shadow-lg">
+                        <img src="https://images.unsplash.com/photo-1539008835657-9e8e9680c956?auto=format&fit=crop&w=800&q=60" alt="Collection 2" class="w-full h-96 object-cover rounded-xl shadow-lg">
                         <div class="text-center mt-4">
                             <h3 class="text-xl font-semibold">Urban Classics</h3>
                             <a href="#urban" class="text-teal-200 hover:underline">Shop Now</a>
                         </div>
                     </div>
                     <div class="carousel-item flex-shrink-0 w-full md:w-1/3 px-3">
-                        <img src="https://images.unsplash.com/photo-1590402494587-44b67d99b33c?auto=format&fit=crop&w=800&q=60" onerror="this.src='https://via.placeholder.com/800x600?text=Image+Not+Found'" alt="Collection 3" class="w-full h-96 object-cover rounded-xl shadow-lg">
+                        <img src="https://images.unsplash.com/photo-1590402494587-44b67d99b33c?auto=format&fit=crop&w=800&q=60" alt="Collection 3" class="w-full h-96 object-cover rounded-xl shadow-lg">
                         <div class="text-center mt-4">
                             <h3 class="text-xl font-semibold">Festive Elegance</h3>
                             <a href="#festive" class="text-teal-200 hover:underline">Shop Now</a>
@@ -138,7 +222,7 @@
         </div>
         <div id="product-grid" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
             <div class="product-card bg-white rounded-xl shadow-lg overflow-hidden" data-tilt data-tilt-max="10" data-tilt-speed="400" data-tilt-perspective="1000" data-category="men" data-price="49.99" data-size="M">
-                <img src="https://images.unsplash.com/photo-1583743814966-8936f970b74b?auto=format&fit=crop&w=500&q=60" onerror="this.src='https://via.placeholder.com/500x500?text=Image+Not+Found'" alt="Product 1" class="w-full h-64 object-cover">
+                <img src="https://images.unsplash.com/photo-1583743814966-8936f970b74b?auto=format&fit=crop&w=500&q=60" alt="Product 1" class="w-full h-64 object-cover">
                 <div class="p-5">
                     <h3 class="text-lg font-semibold text-gray-800">Classic White Shirt</h3>
                     <p class="text-gray-600">$49.99</p>
@@ -146,7 +230,7 @@
                 </div>
             </div>
             <div class="product-card bg-white rounded-xl shadow-lg overflow-hidden" data-tilt data-tilt-max="10" data-tilt-speed="400" data-tilt-perspective="1000" data-category="men" data-price="89.99" data-size="L">
-                <img src="https://images.unsplash.com/photo-1596755094514-f87e34085b2c?auto=format&fit=crop&w=500&q=60" onerror="this.src='https://via.placeholder.com/500x500?text=Image+Not+Found'" alt="Product 2" class="w-full h-64 object-cover">
+                <img src="https://images.unsplash.com/photo-1596755094514-f87e34085b2c?auto=format&fit=crop&w=500&q=60" alt="Product 2" class="w-full h-64 object-cover">
                 <div class="p-5">
                     <h3 class="text-lg font-semibold text-gray-800">Denim Jacket</h3>
                     <p class="text-gray-600">$89.99</p>
@@ -154,7 +238,7 @@
                 </div>
             </div>
             <div class="product-card bg-white rounded-xl shadow-lg overflow-hidden" data-tilt data-tilt-max="10" data-tilt-speed="400" data-tilt-perspective="1000" data-category="women" data-price="69.99" data-size="S">
-                <img src="https://images.unsplash.com/photo-1602810318383-e386cc2a3ccf?auto=format&fit=crop&w=500&q=60" onerror="this.src='https://via.placeholder.com/500x500?text=Image+Not+Found'" alt="Product 3" class="w-full h-64 object-cover">
+                <img src="https://images.unsplash.com/photo-1602810318383-e386cc2a3ccf?auto=format&fit=crop&w=500&q=60" alt="Product 3" class="w-full h-64 object-cover">
                 <div class="p-5">
                     <h3 class="text-lg font-semibold text-gray-800">Floral Dress</h3>
                     <p class="text-gray-600">$69.99</p>
@@ -162,7 +246,7 @@
                 </div>
             </div>
             <div class="product-card bg-white rounded-xl shadow-lg overflow-hidden" data-tilt data-tilt-max="10" data-tilt-speed="400" data-tilt-perspective="1000" data-category="men" data-price="59.99" data-size="XL">
-                <img src="https://images.unsplash.com/photo-1618371518539-e2601d1a3b7d?auto=format&fit=crop&w=500&q=60" onerror="this.src='https://via.placeholder.com/500x500?text=Image+Not+Found'" alt="Product 4" class="w-full h-64 object-cover">
+                <img src="https://images.unsplash.com/photo-1618371518539-e2601d1a3b7d?auto=format&fit=crop&w=500&q=60" alt="Product 4" class="w-full h-64 object-cover">
                 <div class="p-5">
                     <h3 class="text-lg font-semibold text-gray-800">Chinos</h3>
                     <p class="text-gray-600">$59.99</p>
@@ -178,13 +262,13 @@
             <h2 class="text-4xl font-bold text-center mb-10">Style Guide</h2>
             <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
                 <div class="flex flex-col items-center">
-                    <img src="https://images.unsplash.com/photo-1525507119028-ed4c629a60a3?auto=format&fit=crop&w=600&q=60" onerror="this.src='https://via.placeholder.com/600x400?text=Image+Not+Found'" alt="Style 1" class="w-full h-80 object-cover rounded-xl shadow-lg mb-4">
+                    <img src="https://images.unsplash.com/photo-1525507119028-ed4c629a60a3?auto=format&fit=crop&w=600&q=60" alt="Style 1" class="w-full h-80 object-cover rounded-xl shadow-lg mb-4">
                     <h3 class="text-xl font-semibold">Casual Chic</h3>
                     <p class="text-center text-gray-200">Pair our denim jackets with white tees for a relaxed yet stylish look.</p>
                     <a href="#casual" class="mt-4 btn-gradient text-white px-6 py-2 rounded-lg font-medium hover:shadow-lg">Explore Look</a>
                 </div>
                 <div class="flex flex-col items-center">
-                    <img src="https://images.unsplash.com/photo-1551488831-00ddcb6c6bd3?auto=format&fit=crop&w=600&q=60" onerror="this.src='https://via.placeholder.com/600x400?text=Image+Not+Found'" alt="Style 2" class="w-full h-80 object-cover rounded-xl shadow-lg mb-4">
+                    <img src="https://images.unsplash.com/photo-1551488831-00ddcb6c6bd3?auto=format&fit=crop&w=600&q=60" alt="Style 2" class="w-full h-80 object-cover rounded-xl shadow-lg mb-4">
                     <h3 class="text-xl font-semibold">Festive Glam</h3>
                     <p class="text-center text-gray-200">Shine at every event with our elegant dresses and accessories.</p>
                     <a href="#festive" class="mt-4 btn-gradient text-white px-6 py-2 rounded-lg font-medium hover:shadow-lg">Explore Look</a>
@@ -296,7 +380,185 @@
         </div>
     </footer>
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.7.0/vanilla-tilt.min.js"></script>
-    <script src="script.js"></script>
+    <script>
+        // Product data
+        const products = [
+            { name: 'Classic White Shirt', category: 'men', price: 49.99, size: 'M', img: 'https://images.unsplash.com/photo-1583743814966-8936f970b74b?auto=format&fit=crop&w=500&q=60' },
+            { name: 'Denim Jacket', category: 'men', price: 89.99, size: 'L', img: 'https://images.unsplash.com/photo-1596755094514-f87e34085b2c?auto=format&fit=crop&w=500&q=60' },
+            { name: 'Floral Dress', category: 'women', price: 69.99, size: 'S', img: 'https://images.unsplash.com/photo-1602810318383-e386cc2a3ccf?auto=format&fit=crop&w=500&q=60' },
+            { name: 'Chinos', category: 'men', price: 59.99, size: 'XL', img: 'https://images.unsplash.com/photo-1618371518539-e2601d1a3b7d?auto=format&fit=crop&w=500&q=60' }
+        ];
+
+        // Cart functionality
+        let cart = [];
+        let cartCount = 0;
+
+        function addToCart(name, price) {
+            cart.push({ name, price });
+            cartCount++;
+            document.querySelector('.cart-count').textContent = cartCount;
+            updateOrderSummary();
+            alert(`${name} added to cart!`);
+        }
+
+        function updateOrderSummary() {
+            const orderSummary = document.getElementById('order-summary');
+            const totalAmount = document.getElementById('total-amount');
+            if (cart.length === 0) {
+                orderSummary.innerHTML = '<p class="text-gray-600">Your cart is empty.</p>';
+                totalAmount.textContent = '$0.00';
+            } else {
+                orderSummary.innerHTML = cart.map(item => `
+                    <div class="flex justify-between text-gray-700">
+                        <span>${item.name}</span>
+                        <span>$${item.price.toFixed(2)}</span>
+                    </div>
+                `).join('');
+                const total = cart.reduce((sum, item) => sum + item.price, 0);
+                totalAmount.textContent = `$${total.toFixed(2)}`;
+            }
+        }
+
+        // Toggle mobile menu
+        function toggleMenu() {
+            const menu = document.getElementById('mobile-menu');
+            menu.classList.toggle('hidden');
+            menu.classList.toggle('active');
+        }
+
+        // Carousel functionality
+        let currentSlide = 0;
+        const carousel = document.getElementById('carousel');
+        const slides = document.querySelectorAll('.carousel-item');
+        const totalSlides = slides.length;
+        const dots = document.querySelectorAll('.pagination-dot');
+
+        function updateCarousel() {
+            const offset = -currentSlide * (100 / (window.innerWidth >= 768 ? 3 : 1));
+            carousel.style.transform = `translateX(${offset}%)`;
+            dots.forEach((dot, index) => {
+                dot.classList.toggle('active', index === currentSlide);
+            });
+        }
+
+        function nextSlide() {
+            currentSlide = (currentSlide + 1) % totalSlides;
+            updateCarousel();
+        }
+
+        function prevSlide() {
+            currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
+            updateCarousel();
+        }
+
+        function goToSlide(index) {
+            currentSlide = index;
+            updateCarousel();
+        }
+
+        setInterval(nextSlide, 5000);
+
+        // Product filter functionality
+        function filterProducts() {
+            const category = document.getElementById('category-filter').value;
+            const price = document.getElementById('price-filter').value;
+            const size = document.getElementById('size-filter').value;
+            const productGrid = document.getElementById('product-grid');
+
+            const filteredProducts = products.filter(product => {
+                const categoryMatch = category === 'all' || product.category === category;
+                let priceMatch = true;
+                if (price !== 'all') {
+                    if (price === '0-50') priceMatch = product.price <= 50;
+                    else if (price === '50-100') priceMatch = product.price > 50 && product.price <= 100;
+                    else if (price === '100+') priceMatch = product.price > 100;
+                }
+                const sizeMatch = size === 'all' || product.size === size;
+                return categoryMatch && priceMatch && sizeMatch;
+            });
+
+            productGrid.innerHTML = filteredProducts.length > 0 ? filteredProducts.map(product => `
+                <div class="product-card bg-white rounded-xl shadow-lg overflow-hidden" data-tilt data-tilt-max="10" data-tilt-speed="400" data-tilt-perspective="1000" data-category="${product.category}" data-price="${product.price}" data-size="${product.size}">
+                    <img src="${product.img}" alt="${product.name}" class="w-full h-64 object-cover">
+                    <div class="p-5">
+                        <h3 class="text-lg font-semibold text-gray-800">${product.name}</h3>
+                        <p class="text-gray-600">$${product.price.toFixed(2)}</p>
+                        <button class="mt-4 w-full btn-gradient text-white py-2 rounded-lg font-medium hover:shadow-lg" onclick="addToCart('${product.name}', ${product.price})">Add to Cart</button>
+                    </div>
+                </div>
+            `).join('') : '<p class="text-center col-span-full text-gray-600">No products found.</p>';
+
+            // Reapply Vanilla Tilt to new product cards
+            VanillaTilt.init(document.querySelectorAll('.product-card'), {
+                max: 10,
+                speed: 400,
+                perspective: 1000
+            });
+        }
+
+        // Search functionality
+        function searchProducts() {
+            const searchTerm = document.getElementById('search-input').value.toLowerCase();
+            const productGrid = document.getElementById('product-grid');
+
+            const filteredProducts = products.filter(product => product.name.toLowerCase().includes(searchTerm));
+
+            productGrid.innerHTML = filteredProducts.length > 0 ? filteredProducts.map(product => `
+                <div class="product-card bg-white rounded-xl shadow-lg overflow-hidden" data-tilt data-tilt-max="10" data-tilt-speed="400" data-tilt-perspective="1000" data-category="${product.category}" data-price="${product.price}" data-size="${product.size}">
+                    <img src="${product.img}" alt="${product.name}" class="w-full h-64 object-cover">
+                    <div class="p-5">
+                        <h3 class="text-lg font-semibold text-gray-800">${product.name}</h3>
+                        <p class="text-gray-600">$${product.price.toFixed(2)}</p>
+                        <button class="mt-4 w-full btn-gradient text-white py-2 rounded-lg font-medium hover:shadow-lg" onclick="addToCart('${product.name}', ${product.price})">Add to Cart</button>
+                    </div>
+                </div>
+            `).join('') : '<p class="text-center col-span-full text-gray-600">No products found.</p>';
+
+            // Reapply Vanilla Tilt to new product cards
+            VanillaTilt.init(document.querySelectorAll('.product-card'), {
+                max: 10,
+                speed: 400,
+                perspective: 1000
+            });
+        }
+
+        // Checkout navigation
+        document.querySelector('a[href="#cart"]').addEventListener('click', (e) => {
+            e.preventDefault();
+            document.querySelectorAll('section').forEach(section => section.classList.add('hidden'));
+            document.getElementById('checkout').classList.remove('hidden');
+        });
+
+        // Place order functionality
+        function placeOrder() {
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const address = document.getElementById('address').value;
+
+            if (!name || !email || !address) {
+                alert('Please fill in all required fields.');
+                return;
+            }
+
+            alert('Order placed successfully!');
+            cart = [];
+            cartCount = 0;
+            document.querySelector('.cart-count').textContent = cartCount;
+            updateOrderSummary();
+            document.getElementById('checkout').classList.add('hidden');
+            document.getElementById('shop').classList.remove('hidden');
+        }
+
+        // Initialize Vanilla Tilt for product cards
+        document.addEventListener('DOMContentLoaded', () => {
+            VanillaTilt.init(document.querySelectorAll('.product-card'), {
+                max: 10,
+                speed: 400,
+                perspective: 1000
+            });
+            updateCarousel();
+            dots[0].classList.add('active');
+        });
+    </script>
 </body>
 </html>
