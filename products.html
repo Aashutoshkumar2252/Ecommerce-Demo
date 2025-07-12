@@ -14,11 +14,10 @@
         <div class="container mx-auto px-4 py-4 flex justify-between items-center">
             <a href="index.html" class="text-3xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-teal-600 to-rose-500">YourBrand</a>
             <div class="hidden md:flex space-x-8">
-                <a href="#all" class="text-lg font-medium hover:text-teal-600 transition-colors" onclick="applyCategoryFilter('all')">Shop All</a>
-                <a href="#men" class="text-lg font-medium hover:text-teal-600 transition-colors" onclick="applyCategoryFilter('men')">Men</a>
-                <a href="#women" class="text-lg font-medium hover:text-teal-600 transition-colors" onclick="applyCategoryFilter('women')">Women</a>
-                <a href="#kids" class="text-lg font-medium hover:text-teal-600 transition-colors" onclick="applyCategoryFilter('kids')">Kids</a>
-                <a href="#sale" class="text-lg font-medium hover:text-teal-600 transition-colors" onclick="applyCategoryFilter('sale')">Sale</a>
+                <a href="products.html" class="text-lg font-medium hover:text-teal-600 transition-colors">Shop</a>
+                <a href="my-account.html" class="text-lg font-medium hover:text-teal-600 transition-colors">My Account</a>
+                <a href="about.html" class="text-lg font-medium hover:text-teal-600 transition-colors">About</a>
+                <a href="contact.html" class="text-lg font-medium hover:text-teal-600 transition-colors">Contact</a>
             </div>
             <div class="flex items-center space-x-6">
                 <div class="relative">
@@ -27,7 +26,7 @@
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
                     </svg>
                 </div>
-                <a href="#cart" class="relative hover:text-teal-600" onclick="showCheckout()">
+                <a href="cart.html" class="relative hover:text-teal-600">
                     <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" />
                     </svg>
@@ -42,29 +41,61 @@
         </div>
         <!-- Mobile Menu -->
         <div id="mobile-menu" class="mobile-menu hidden md:hidden bg-white shadow-lg absolute w-full">
-            <a href="#all" class="block px-4 py-3 hover:bg-teal-50 transition-colors" onclick="applyCategoryFilter('all')">Shop All</a>
-            <a href="#men" class="block px-4 py-3 hover:bg-teal-50 transition-colors" onclick="applyCategoryFilter('men')">Men</a>
-            <a href="#women" class="block px-4 py-3 hover:bg-teal-50 transition-colors" onclick="applyCategoryFilter('women')">Women</a>
-            <a href="#kids" class="block px-4 py-3 hover:bg-teal-50 transition-colors" onclick="applyCategoryFilter('kids')">Kids</a>
-            <a href="#sale" class="block px-4 py-3 hover:bg-teal-50 transition-colors" onclick="applyCategoryFilter('sale')">Sale</a>
+            <a href="products.html" class="block px-4 py-3 hover:bg-teal-50 transition-colors">Shop</a>
+            <a href="my-account.html" class="block px-4 py-3 hover:bg-teal-50 transition-colors">My Account</a>
+            <a href="about.html" class="block px-4 py-3 hover:bg-teal-50 transition-colors">About</a>
+            <a href="contact.html" class="block px-4 py-3 hover:bg-teal-50 transition-colors">Contact</a>
         </div>
     </nav>
 
     <!-- Filter Section -->
     <section id="filters" class="container mx-auto px-4 py-8 mt-16">
         <h2 class="text-3xl font-bold text-center mb-6 text-gray-800">Filter Products</h2>
-        <div class="bg-white rounded-xl shadow-lg p-6">
-            <div class="filter-dropdown">
+        <div class="bg-white rounded-xl shadow-lg p-6 grid grid-cols-1 md:grid-cols-4 gap-4">
+            <div>
                 <label for="category-filter" class="block text-sm font-medium text-gray-700">Category</label>
                 <select id="category-filter" class="mt-1 block w-full border-gray-200 rounded-lg shadow-sm focus:ring-teal-500 focus:border-teal-500 bg-white" onchange="filterProducts()">
                     <option value="all">All</option>
                     <option value="men">Men</option>
+                    <option value="men-shirts">Men - Shirts</option>
+                    <option value="men-jackets">Men - Jackets</option>
+                    <option value="men-pants">Men - Pants</option>
                     <option value="women">Women</option>
+                    <option value="women-dresses">Women - Dresses</option>
+                    <option value="women-tops">Women - Tops</option>
                     <option value="kids">Kids</option>
                     <option value="summer">Summer</option>
                     <option value="urban">Urban</option>
                     <option value="festive">Festive</option>
                     <option value="sale">Sale</option>
+                </select>
+            </div>
+            <div>
+                <label for="sort-filter" class="block text-sm font-medium text-gray-700">Sort By</label>
+                <select id="sort-filter" class="mt-1 block w-full border-gray-200 rounded-lg shadow-sm focus:ring-teal-500 focus:border-teal-500 bg-white" onchange="filterProducts()">
+                    <option value="newest">Newest</option>
+                    <option value="price-low">Price: Low to High</option>
+                    <option value="price-high">Price: High to Low</option>
+                    <option value="bestselling">Bestselling</option>
+                </select>
+            </div>
+            <div>
+                <label for="color-filter" class="block text-sm font-medium text-gray-700">Color</label>
+                <select id="color-filter" class="mt-1 block w-full border-gray-200 rounded-lg shadow-sm focus:ring-teal-500 focus:border-teal-500 bg-white" onchange="filterProducts()">
+                    <option value="all">All</option>
+                    <option value="white">White</option>
+                    <option value="blue">Blue</option>
+                    <option value="multicolor">Multicolor</option>
+                </select>
+            </div>
+            <div>
+                <label for="size-filter" class="block text-sm font-medium text-gray-700">Size</label>
+                <select id="size-filter" class="mt-1 block w-full border-gray-200 rounded-lg shadow-sm focus:ring-teal-500 focus:border-teal-500 bg-white" onchange="filterProducts()">
+                    <option value="all">All</option>
+                    <option value="S">Small</option>
+                    <option value="M">Medium</option>
+                    <option value="L">Large</option>
+                    <option value="XL">Extra Large</option>
                 </select>
             </div>
         </div>
@@ -76,61 +107,10 @@
         <div id="product-grid" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
             <!-- Products will be populated dynamically by script.js -->
         </div>
-    </section>
-
-    <!-- Checkout Page -->
-    <section id="checkout" class="container mx-auto px-4 py-16 hidden">
-        <h2 class="text-4xl font-bold text-center mb-10 text-gray-800">Checkout</h2>
-        <div class="flex justify-center文艺
-
-System: center mb-8">
-            <div class="flex space-x-4">
-                <div class="checkout-step text-white px-4 py-2 rounded-full">1. Shipping</div>
-                <div class="text-gray-400 px-4 py-2 rounded-full">2. Payment</div>
-                <div class="text-gray-400 px-4 py-2 rounded-full">3. Confirmation</div>
-            </div>
-        </div>
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-            <!-- User Details Form -->
-            <div class="bg-white rounded-xl shadow-lg p-8">
-                <h3 class="text-xl font-semibold mb-6 text-gray-800">Shipping Information</h3>
-                <div class="space-y-6">
-                    <div>
-                        <label for="name" class="block text-sm font-medium text-gray-700">Full Name</label>
-                        <input id="name" type="text" class="mt-1 block w-full border-gray-200 rounded-lg shadow-sm focus:ring-teal-500 focus:border-teal-500 bg-white" required>
-                    </div>
-                    <div>
-                        <label for="email" class="block text-sm font-medium text-gray-700">Email</label>
-                        <input id="email" type="email" class="mt-1 block w-full border-gray-200 rounded-lg shadow-sm focus:ring-teal-500 focus:border-teal-500 bg-white" required>
-                    </div>
-                    <div>
-                        <label for="address" class="block text-sm font-medium text-gray-700">Address</label>
-                        <input id="address" type="text" class="mt-1 block w-full border-gray-200 rounded-lg shadow-sm focus:ring-teal-500 focus:border-teal-500 bg-white" required>
-                    </div>
-                    <div>
-                        <label for="payment" class="block text-sm font-medium text-gray-700">Payment Method</label>
-                        <select id="payment" class="mt-1 block w-full border-gray-200 rounded-lg shadow-sm focus:ring-teal-500 focus:border-teal-500 bg-white">
-                            <option value="credit">Credit Card</option>
-                            <option value="paypal">PayPal</option>
-                            <option value="cod">Cash on Delivery</option>
-                        </select>
-                    </div>
-                    <button onclick="placeOrder()" class="w-full btn-gradient text-white py-3 rounded-lg font-semibold hover:shadow-xl">Place Order</button>
-                </div>
-            </div>
-            <!-- Order Summary -->
-            <div class="bg-white rounded-xl shadow-lg p-8">
-                <h3 class="text-xl font-semibold mb-6 text-gray-800">Order Summary</h3>
-                <div id="order-summary" class="space-y-4">
-                    <p class="text-gray-600">Your cart is empty.</p>
-                </div>
-                <div class="mt-6 border-t pt-4">
-                    <p class="flex justify-between text-lg font-semibold text-gray-800">
-                        <span>Total</span>
-                        <span id="total-amount">$0.00</span>
-                    </p>
-                </div>
-            </div>
+        <div id="pagination" class="flex justify-center mt-8 space-x-4">
+            <button onclick="prevPage()" class="btn-gradient text-white px-4 py-2 rounded-lg">Previous</button>
+            <div id="page-numbers" class="flex space-x-2"></div>
+            <button onclick="nextPage()" class="btn-gradient text-white px-4 py-2 rounded-lg">Next</button>
         </div>
     </section>
 

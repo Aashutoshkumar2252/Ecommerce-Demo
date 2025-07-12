@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cart - YourBrand</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-50">
+    <!-- Navigation Bar -->
+    <nav class="navbar shadow-lg fixed top-0 w-full z-20">
+        <div class="container mx-auto px-4 py-4 flex justify-between items-center">
+            <a href="index.html" class="text-3xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-teal-600 to-rose-500">YourBrand</a>
+            <div class="hidden md:flex space-x-8">
+                <a href="products.html" class="text-lg font-medium hover:text-teal-600 transition-colors">Shop</a>
+                <a href="my-account.html" class="text-lg font-medium hover:text-teal-600 transition-colors">My Account</a>
+                <a href="about.html" class="text-lg font-medium hover:text-teal-600 transition-colors">About</a>
+                <a href="contact.html" class="text-lg font-medium hover:text-teal-600 transition-colors">Contact</a>
+            </div>
+            <div class="flex items-center space-x-6">
+                <div class="relative">
+                    <input id="search-input" type="text" placeholder="Search products..." class="search-input px-4 py-2 rounded-full border border-gray-200 bg-white focus:ring-2 focus:ring-teal-500 transition-all" oninput="searchProducts()">
+                    <svg class="w-5 h-5 absolute right-3 top-3 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+                    </svg>
+                </div>
+                <a href="cart.html" class="relative hover:text-teal-600">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" />
+                    </svg>
+                    <span class="absolute cart-count bg-gradient-to-r from-teal-600 to-rose-500 text-white rounded-full px-2 py-1">0</span>
+                </a>
+                <button class="md:hidden" onclick="toggleMenu()">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="mobile-menu hidden md:hidden bg-white shadow-lg absolute w-full">
+            <a href="products.html" class="block px-4 py-3 hover:bg-teal-50 transition-colors">Shop</a>
+            <a href="my-account.html" class="block px-4 py-3 hover:bg-teal-50 transition-colors">My Account</a>
+            <a href="about.html" class="block px-4 py-3 hover:bg-teal-50 transition-colors">About</a>
+            <a href="contact.html" class="block px-4 py-3 hover:bg-teal-50 transition-colors">Contact</a>
+        </div>
+    </nav>
+
+    <!-- Cart Section -->
+    <section id="cart" class="container mx-auto px-4 py-16 mt-16">
+        <h2 class="text-4xl font-bold text-center mb-10 text-gray-800">Your Cart</h2>
+        <div class="bg-white rounded-xl shadow-lg p-8">
+            <div id="cart-items" class="space-y-4">
+                <p class="text-gray-600">Your cart is empty.</p>
+            </div>
+            <div class="mt-6 border-t pt-4">
+                <div class="flex justify-between text-lg font-semibold text-gray-800 mb-4">
+                    <span>Subtotal</span>
+                    <span id="cart-subtotal">$0.00</span>
+                </div>
+                <div class="flex justify-between text-lg font-semibold text-gray-800 mb-4">
+                    <span>Estimated Shipping</span>
+                    <span id="cart-shipping">$0.00</span>
+                </div>
+                <div class="flex justify-between text-lg font-semibold text-gray-800">
+                    <span>Total</span>
+                    <span id="cart-total">$0.00</span>
+                </div>
+            </div>
+            <div class="mt-6">
+                <div class="flex mb-4">
+                    <input id="coupon-code" type="text" placeholder="Enter coupon code" class="flex-1 px-4 py-3 rounded-l-lg border-none focus:ring-2 focus:ring-teal-500">
+                    <button onclick="applyCoupon()" class="btn-gradient text-white px-6 py-3 rounded-r-lg font-semibold hover:shadow-xl">Apply Coupon</button>
+                </div>
+                <div class="flex space-x-4">
+                    <a href="products.html" class="w-1/2 bg-gray-200 text-gray-800 py-3 rounded-lg font-semibold hover:bg-gray-300 text-center">Continue Shopping</a>
+                    <a href="checkout.html" class="w-1/2 btn-gradient text-white py-3 rounded-lg font-semibold hover:shadow-xl text-center">Proceed to Checkout</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.7.0/vanilla-tilt.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

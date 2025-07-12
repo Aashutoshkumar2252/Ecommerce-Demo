@@ -14,10 +14,10 @@
         <div class="container mx-auto px-4 py-4 flex justify-between items-center">
             <a href="index.html" class="text-3xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-teal-600 to-rose-500">YourBrand</a>
             <div class="hidden md:flex space-x-8">
-                <a href="products.html#men" class="text-lg font-medium hover:text-teal-600 transition-colors">Men</a>
-                <a href="products.html#women" class="text-lg font-medium hover:text-teal-600 transition-colors">Women</a>
-                <a href="products.html#kids" class="text-lg font-medium hover:text-teal-600 transition-colors">Kids</a>
-                <a href="products.html#sale" class="text-lg font-medium hover:text-teal-600 transition-colors">Sale</a>
+                <a href="products.html" class="text-lg font-medium hover:text-teal-600 transition-colors">Shop</a>
+                <a href="my-account.html" class="text-lg font-medium hover:text-teal-600 transition-colors">My Account</a>
+                <a href="about.html" class="text-lg font-medium hover:text-teal-600 transition-colors">About</a>
+                <a href="contact.html" class="text-lg font-medium hover:text-teal-600 transition-colors">Contact</a>
             </div>
             <div class="flex items-center space-x-6">
                 <div class="relative">
@@ -26,7 +26,7 @@
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
                     </svg>
                 </div>
-                <a href="#cart" class="relative hover:text-teal-600" onclick="showCheckout()">
+                <a href="cart.html" class="relative hover:text-teal-600">
                     <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" />
                     </svg>
@@ -41,10 +41,10 @@
         </div>
         <!-- Mobile Menu -->
         <div id="mobile-menu" class="mobile-menu hidden md:hidden bg-white shadow-lg absolute w-full">
-            <a href="products.html#men" class="block px-4 py-3 hover:bg-teal-50 transition-colors">Men</a>
-            <a href="products.html#women" class="block px-4 py-3 hover:bg-teal-50 transition-colors">Women</a>
-            <a href="products.html#kids" class="block px-4 py-3 hover:bg-teal-50 transition-colors">Kids</a>
-            <a href="products.html#sale" class="block px-4 py-3 hover:bg-teal-50 transition-colors">Sale</a>
+            <a href="products.html" class="block px-4 py-3 hover:bg-teal-50 transition-colors">Shop</a>
+            <a href="my-account.html" class="block px-4 py-3 hover:bg-teal-50 transition-colors">My Account</a>
+            <a href="about.html" class="block px-4 py-3 hover:bg-teal-50 transition-colors">About</a>
+            <a href="contact.html" class="block px-4 py-3 hover:bg-teal-50 transition-colors">Contact</a>
         </div>
     </nav>
 
@@ -68,8 +68,9 @@
             <!-- Product Info -->
             <div class="bg-white rounded-xl shadow-lg p-8">
                 <h1 id="product-title" class="text-3xl font-bold text-gray-800 mb-4">Product Name</h1>
-                <h2 id="product-name" class="text-xl font-semibold text-gray-700 mb-2"></h2>
-                <p id="product-price" class="text-lg text-gray-600 mb-4">$0.00</p>
+                <p id="product-price" class="text-lg text-gray-600 mb-2">$0.00</p>
+                <p id="product-availability" class="text-sm text-gray-600 mb-4">In Stock</p>
+                <p id="product-delivery" class="text-sm text-gray-600 mb-4">Estimated Delivery: 3-5 Business Days</p>
                 <p id="product-description" class="text-gray-600 mb-6">Product description goes here.</p>
                 <div class="mb-6">
                     <label for="size" class="block text-sm font-medium text-gray-700">Size</label>
@@ -81,10 +82,63 @@
                     </select>
                 </div>
                 <div class="mb-6">
+                    <label for="color" class="block text-sm font-medium text-gray-700">Color</label>
+                    <select id="color" class="mt-1 block w-full border-gray-200 rounded-lg shadow-sm focus:ring-teal-500 focus:border-teal-500 bg-white">
+                        <option value="white">White</option>
+                        <option value="blue">Blue</option>
+                        <option value="multicolor">Multicolor</option>
+                    </select>
+                </div>
+                <div class="mb-6">
                     <label for="quantity" class="block text-sm font-medium text-gray-700">Quantity</label>
                     <input id="quantity" type="number" min="1" value="1" class="mt-1 block w-full border-gray-200 rounded-lg shadow-sm focus:ring-teal-500 focus:border-teal-500 bg-white">
                 </div>
-                <button onclick="addToCartDynamic()" class="w-full btn-gradient text-white py-3 rounded-lg font-semibold hover:shadow-xl">Add to Cart</button>
+                <div class="flex space-x-4 mb-6">
+                    <button onclick="addToCartDynamic()" class="w-1/2 btn-gradient text-white py-3 rounded-lg font-semibold hover:shadow-xl">Add to Cart</button>
+                    <button onclick="buyNow()" class="w-1/2 bg-gray-800 text-white py-3 rounded-lg font-semibold hover:bg-gray-700">Buy Now</button>
+                </div>
+                <button onclick="addToWishlist()" class="w-full bg-gray-200 text-gray-800 py-2 rounded-lg font-medium hover:bg-gray-300 mb-4">Add to Wishlist</button>
+                <div class="flex space-x-4">
+                    <a href="https://facebook.com/sharer/sharer.php?u=${encodeURIComponent(window.location.href)}" target="_blank" class="text-gray-600 hover:text-teal-600">
+                        <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M9 8h-3v4h3v12h5v-12h3.642l.358-4h-4v-1.667c0-.955.192-1.333 1.115-1.333h2.885v-5h-3.808c-3.596 0-5.192 1.583-5.192 4.615v3.385z"/></svg>
+                    </a>
+                    <a href="https://twitter.com/intent/tweet?url=${encodeURIComponent(window.location.href)}" target="_blank" class="text-gray-600 hover:text-teal-600">
+                        <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-2.717 0-4.92 2.203-4.92 4.917 0 .39.045.765.127 1.124C7.691 8.094 4.066 6.13 1.64 3.161c-.427.722-.666 1.561-.666 2.475 0 1.708.87 3.216 2.188 4.099-.807-.026-1.566-.248-2.228-.616v.061c0 2.385 1.693 4.374 3.946 4.827-.413.111-.849.171-1.296.171-.314 0-.615-.03-.916-.086.631 1.953 2.445 3.377 4.604 3.417-1.68 1.319-3.809 2.105-6.102 2.105-.39 0-.779-.023-1.17-.067 2.189 1.401 4.768 2.219 7.557 2.219 9.054 0 13.999-7.496 13.999-13.986 0-.209 0-.42-.015-.63.961-.689 1.8-1.56 2.46-2.548l-.047-.02z"/></svg>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <!-- Detailed Description -->
+        <div class="mt-8 bg-white rounded-xl shadow-lg p-8">
+            <h3 class="text-xl font-semibold text-gray-800 mb-4">Product Details</h3>
+            <p id="product-details" class="text-gray-600">Detailed specifications and features of the product.</p>
+        </div>
+    </section>
+
+    <!-- Customer Reviews -->
+    <section class="container mx-auto px-4 py-16">
+        <h2 class="text-4xl font-bold text-center mb-10 text-gray-800">Customer Reviews</h2>
+        <div id="reviews" class="space-y-6">
+            <!-- Reviews will be populated dynamically -->
+        </div>
+        <div class="mt-8 bg-white rounded-xl shadow-lg p-8">
+            <h3 class="text-xl font-semibold text-gray-800 mb-4">Add Your Review</h3>
+            <div class="space-y-4">
+                <div>
+                    <label for="review-rating" class="block text-sm font-medium text-gray-700">Rating</label>
+                    <select id="review-rating" class="mt-1 block w-full border-gray-200 rounded-lg shadow-sm focus:ring-teal-500 focus:border-teal-500 bg-white">
+                        <option value="5">5 Stars</option>
+                        <option value="4">4 Stars</option>
+                        <option value="3">3 Stars</option>
+                        <option value="2">2 Stars</option>
+                        <option value="1">1 Star</option>
+                    </select>
+                </div>
+                <div>
+                    <label for="review-text" class="block text-sm font-medium text-gray-700">Your Review</label>
+                    <textarea id="review-text" class="mt-1 block w-full border-gray-200 rounded-lg shadow-sm focus:ring-teal-500 focus:border-teal-500 bg-white" rows="4"></textarea>
+                </div>
+                <button onclick="submitReview()" class="btn-gradient text-white py-3 rounded-lg font-semibold hover:shadow-xl">Submit Review</button>
             </div>
         </div>
     </section>
@@ -112,57 +166,11 @@
         </div>
     </section>
 
-    <!-- Checkout Page -->
-    <section id="checkout" class="container mx-auto px-4 py-16 hidden">
-        <h2 class="text-4xl font-bold text-center mb-10 text-gray-800">Checkout</h2>
-        <div class="flex justify-center mb-8">
-            <div class="flex space-x-4">
-                <div class="checkout-step text-white px-4 py-2 rounded-full">1. Shipping</div>
-                <div class="text-gray-400 px-4 py-2 rounded-full">2. Payment</div>
-                <div class="text-gray-400 px-4 py-2 rounded-full">3. Confirmation</div>
-            </div>
-        </div>
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-            <!-- User Details Form -->
-            <div class="bg-white rounded-xl shadow-lg p-8">
-                <h3 class="text-xl font-semibold mb-6 text-gray-800">Shipping Information</h3>
-                <div class="space-y-6">
-                    <div>
-                        <label for="name" class="block text-sm font-medium text-gray-700">Full Name</label>
-                        <input id="name" type="text" class="mt-1 block w-full border-gray-200 rounded-lg shadow-sm focus:ring-teal-500 focus:border-teal-500 bg-white" required>
-                    </div>
-                    <div>
-                        <label for="email" class="block text-sm font-medium text-gray-700">Email</label>
-                        <input id="email" type="email" class="mt-1 block w-full border-gray-200 rounded-lg shadow-sm focus:ring-teal-500 focus:border-teal-500 bg-white" required>
-                    </div>
-                    <div>
-                        <label for="address" class="block text-sm font-medium text-gray-700">Address</label>
-                        <input id="address" type="text" class="mt-1 block w-full border-gray-200 rounded-lg shadow-sm focus:ring-teal-500 focus:border-teal-500 bg-white" required>
-                    </div>
-                    <div>
-                        <label for="payment" class="block text-sm font-medium text-gray-700">Payment Method</label>
-                        <select id="payment" class="mt-1 block w-full border-gray-200 rounded-lg shadow-sm focus:ring-teal-500 focus:border-teal-500 bg-white">
-                            <option value="credit">Credit Card</option>
-                            <option value="paypal">PayPal</option>
-                            <option value="cod">Cash on Delivery</option>
-                        </select>
-                    </div>
-                    <button onclick="placeOrder()" class="w-full btn-gradient text-white py-3 rounded-lg font-semibold hover:shadow-xl">Place Order</button>
-                </div>
-            </div>
-            <!-- Order Summary -->
-            <div class="bg-white rounded-xl shadow-lg p-8">
-                <h3 class="text-xl font-semibold mb-6 text-gray-800">Order Summary</h3>
-                <div id="order-summary" class="space-y-4">
-                    <p class="text-gray-600">Your cart is empty.</p>
-                </div>
-                <div class="mt-6 border-t pt-4">
-                    <p class="flex justify-between text-lg font-semibold text-gray-800">
-                        <span>Total</span>
-                        <span id="total-amount">$0.00</span>
-                    </p>
-                </div>
-            </div>
+    <!-- Shipping & Returns -->
+    <section class="container mx-auto px-4 py-16">
+        <h2 class="text-4xl font-bold text-center mb-10 text-gray-800">Shipping & Returns</h2>
+        <div class="bg-white rounded-xl shadow-lg p-8">
+            <p class="text-gray-600 mb-4">We offer free standard shipping on orders over $100. Express shipping is available for an additional fee. Returns are accepted within 30 days of purchase. See our <a href="shipping-policy.html" class="text-teal-600 hover:underline">Shipping Policy</a> and <a href="returns.html" class="text-teal-600 hover:underline">Return Policy</a> for details.</p>
         </div>
     </section>
 
