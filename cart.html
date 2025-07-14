@@ -48,8 +48,18 @@
         </div>
     </nav>
 
+    <!-- Back Button -->
+    <section class="container mx-auto px-4 py-4 mt-16">
+        <button onclick="history.back()" class="btn-gradient text-white px-4 py-2 rounded-lg font-semibold hover:shadow-xl flex items-center">
+            <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+            </svg>
+            Back
+        </button>
+    </section>
+
     <!-- Cart Section -->
-    <section id="cart" class="container mx-auto px-4 py-16 mt-16">
+    <section id="cart" class="container mx-auto px-4 py-16">
         <h2 class="text-4xl font-bold text-center mb-10 text-gray-800">Your Cart</h2>
         <div class="bg-white rounded-xl shadow-lg p-8">
             <div id="cart-items" class="space-y-4">

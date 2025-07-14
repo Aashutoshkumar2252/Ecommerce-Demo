@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Your Clothing Brand</title>
+    <title>About Us - YourBrand</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
     <script src="https://cdn.tailwindcss.com"></script>
@@ -48,90 +48,33 @@
         </div>
     </nav>
 
-    <!-- Hero Section -->
-    <section class="hero-bg h-screen flex items-center justify-center text-white text-center">
-        <div class="container mx-auto px-4 hero-text">
-            <h1 class="text-5xl md:text-7xl font-extrabold mb-6">Discover Your Unique Style</h1>
-            <p class="text-xl md:text-2xl mb-8">Explore our curated collections for modern fashion lovers.</p>
-            <a href="products.html" class="btn-gradient text-white px-8 py-3 rounded-full font-semibold text-lg shadow-lg hover:shadow-xl">Shop Now</a>
-        </div>
+    <!-- Back Button -->
+    <section class="container mx-auto px-4 py-4 mt-16">
+        <button onclick="history.back()" class="btn-gradient text-white px-4 py-2 rounded-lg font-semibold hover:shadow-xl flex items-center">
+            <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+            </svg>
+            Back
+        </button>
     </section>
 
-    <!-- New Arrivals -->
-    <section class="section-gradient text-white py-16">
-        <div class="container mx-auto px-4">
-            <h2 class="text-4xl font-bold text-center mb-10">New Arrivals</h2>
-            <div id="new-arrivals" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
-                <!-- Populated by script.js -->
-            </div>
-            <div class="text-center mt-8">
-                <a href="products.html#new" class="btn-gradient text-white px-6 py-3 rounded-lg font-semibold hover:shadow-xl">View All New Arrivals</a>
-            </div>
-        </div>
-    </section>
-
-    <!-- Best Sellers -->
+    <!-- About Us Section -->
     <section class="container mx-auto px-4 py-16">
-        <h2 class="text-4xl font-bold text-center mb-10 text-gray-800">Best Sellers</h2>
-        <div id="best-sellers" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
-            <!-- Populated by script.js -->
-        </div>
-        <div class="text-center mt-8">
-            <a href="products.html#bestselling" class="btn-gradient text-white px-6 py-3 rounded-lg font-semibold hover:shadow-xl">View All Best Sellers</a>
-        </div>
-    </section>
-
-    <!-- Promotions/Deals -->
-    <section class="section-gradient text-white py-16">
-        <div class="container mx-auto px-4">
-            <h2 class="text-4xl font-bold text-center mb-10">Promotions & Deals</h2>
-            <div id="promotions" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
-                <!-- Populated by script.js -->
-            </div>
-            <div class="text-center mt-8">
-                <a href="products.html#sale" class="btn-gradient text-white px-6 py-3 rounded-lg font-semibold hover:shadow-xl">Shop All Deals</a>
-            </div>
-        </div>
-    </section>
-
-    <!-- Why Shop With Us -->
-    <section class="container mx-auto px-4 py-16">
-        <h2 class="text-4xl font-bold text-center mb-10 text-gray-800">Why Shop With Us?</h2>
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <h2 class="text-4xl font-bold text-center mb-10 text-gray-800">About Us</h2>
+        <div class="bg-white rounded-xl shadow-lg p-8">
+            <h3 class="text-2xl font-semibold text-gray-800 mb-4">Our Story</h3>
+            <p class="text-gray-600 mb-6">YourBrand was founded with a passion for delivering high-quality, stylish clothing that empowers individuals to express their unique style. Since our inception in 2020, we have been committed to curating collections that blend modern trends with timeless elegance.</p>
+            <h3 class="text-2xl font-semibold text-gray-800 mb-4">Our Mission</h3>
+            <p class="text-gray-600 mb-6">We aim to provide sustainable, affordable, and fashionable clothing options for everyone. Our mission is to make fashion accessible while prioritizing quality, comfort, and environmental responsibility.</p>
+            <h3 class="text-2xl font-semibold text-gray-800 mb-4">Why Choose Us?</h3>
+            <ul class="list-disc list-inside text-gray-600 mb-6">
+                <li>Premium quality materials sourced ethically.</li>
+                <li>Exclusive designs crafted by top designers.</li>
+                <li>Fast and reliable shipping worldwide.</li>
+                <li>Exceptional customer service to assist you at every step.</li>
+            </ul>
             <div class="text-center">
-                <svg class="w-12 h-12 mx-auto mb-4 text-teal-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z" />
-                </svg>
-                <h3 class="text-xl font-semibold text-gray-800">Secure Payments</h3>
-                <p class="text-gray-600">Shop with confidence using our secure payment gateways.</p>
-            </div>
-            <div class="text-center">
-                <svg class="w-12 h-12 mx-auto mb-4 text-teal-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
-                </svg>
-                <h3 class="text-xl font-semibold text-gray-800">Quality Guarantee</h3>
-                <p class="text-gray-600">Premium products crafted with care and durability.</p>
-            </div>
-            <div class="text-center">
-                <svg class="w-12 h-12 mx-auto mb-4 text-teal-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 7l-8-4-8 4m16 0v6a2 2 0 01-2 2H6a2 2 0 01-2-2V7m16 0l-8 4-8-4" />
-                </svg>
-                <h3 class="text-xl font-semibold text-gray-800">Fast Shipping</h3>
-                <p class="text-gray-600">Get your orders delivered quickly and reliably.</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- Newsletter Signup -->
-    <section class="section-gradient text-white py-16">
-        <div class="container mx-auto px-4 text-center">
-            <h2 class="text-4xl font-bold mb-6">Join Our Newsletter</h2>
-            <p class="text-xl mb-8">Stay updated with the latest trends and exclusive offers!</p>
-            <div class="max-w-md mx-auto">
-                <div class="flex">
-                    <input id="newsletter-email" type="email" placeholder="Enter your email" class="flex-1 px-4 py-3 rounded-l-lg border-none focus:ring-2 focus:ring-teal-500">
-                    <button onclick="subscribeNewsletter()" class="btn-gradient text-white px-6 py-3 rounded-r-lg font-semibold hover:shadow-xl">Subscribe</button>
-                </div>
+                <a href="products.html" class="btn-gradient text-white px-6 py-3 rounded-lg font-semibold hover:shadow-xl">Shop Our Collections</a>
             </div>
         </div>
     </section>

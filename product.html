@@ -48,8 +48,18 @@
         </div>
     </nav>
 
-    <!-- Breadcrumb -->
+    <!-- Back Button -->
     <section class="container mx-auto px-4 py-4 mt-16">
+        <button onclick="history.back()" class="btn-gradient text-white px-4 py-2 rounded-lg font-semibold hover:shadow-xl flex items-center">
+            <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+            </svg>
+            Back
+        </button>
+    </section>
+
+    <!-- Breadcrumb -->
+    <section class="container mx-auto px-4 py-4">
         <nav class="text-gray-600">
             <a href="index.html" class="hover:text-teal-600">Home</a> > <a href="products.html" class="hover:text-teal-600">Products</a> > <span id="breadcrumb-product">Product</span>
         </nav>
